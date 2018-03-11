@@ -39,7 +39,6 @@ User -> company -> event -> session -> tickets -> codes
 After we defined the data model we wil start with mockups of the web application.
 
 First of all we will specify that it is a responsive web and the functional graph of which we can see the workflow will be designed for mobile. 
-![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/01_all_process.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/02_insertuser.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/03_validate.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/04_validate.png)
