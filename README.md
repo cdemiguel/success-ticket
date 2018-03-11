@@ -39,8 +39,33 @@ User -> company -> event -> session -> tickets -> codes
 After we defined the data model we wil start with mockups of the web application.
 
 First of all we will specify that it is a responsive web and the functional graph of which we can see the workflow will be designed for mobile. 
+
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/02_insertuser.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/03_validate.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/04_validate.png)
 ![graphic_functional](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/05_user_actions.png)
 
+
+**UML diagram:**
+
+Technologies:
+REACTJS -> NODEJS/EXPRESS - MONGO/MONGOOSE
+
+UML:
+![UML](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/uml.png)
+
+Process diagram:
+![Process](https://github.com/cdemiguel/succes-ticket/blob/develop/git-images/process.png)
+
+**Work process:**
+
+| Date          | Task      
+| ------------- |:-------------:| 
+| 14/03/2018      | Web app structure, Read only | 
+| 16/03/2018      | Api client done, tested, insert fake data model in BBDD |   
+| 19/03/2018 | OK process should be done, with input validation solution (list tickets, and manage user withouth error handling) |   
+| 22/03/2018 | Error handling done |   
+| 24/03/2018 | Little bit of TDD with Jasmine & start camera validation feature |   
+| 26/03/2018 | Camera validation implementation |
+| 28/03/2018 | Upload and functional tests, fix |    
+| 30/03/2018 | Newspaper time |    
