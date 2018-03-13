@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="stylesheet" href="vendor/bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/ionicons/2.0.1/css/ionicons.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <div id="root"></div>
+
+  <!-- log in section 
+    <div class="container log-in-section">
+      <div class="log-in-section-title row">
+        <div class="col-12 text-center">
+          <img src="images/succes-ticket-logo.svg" alt="succes-ticket-logo">
+        </div>
+        <div class="col-12 text-center">
+          <h1 class="mt-4">succes ticket</h1>
+        </div>
+      </div>
+      <div class="log-in-section-form row">
+        <input class="col-12 mb-4" type="text" placeholder="e.g:username" required>
+        <input class="col-12 mb-4" type="password" placeholder="e.g:********" required>
+        <input class="col-12 mb-4 button" type="button" class="log-in-section-button" value="Sign in">
+      </div>
+      <div class="row text-center log-in-section-recovery">
+        <div class="col-12">
+          <a href="#">forgot your password?</a>
+        </div>
+      </div>
+    </div>
+     -->
+
+
+  <!-- event section 
+  <div class="container-full event-section">
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="/images/succes-ticket-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-2 text-white">Company name</span>
+      </a>
+      <div class="">
+        <a href="">
+          <i class="icon ion-ios-person-outline"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="col-12 section-title">
+      <h3>Events list
+        <span>(ordered by date)</span>
+      </h3>
+    </div>
+  </div>
+  <hr>
+  <div class="container event-section">
+    <div class="row">
+      <div class="col-12 no-gutters">
+        <img class="img-fluid" src="/images/01_event.jpg" alt="">
+      </div>
+      <div class="col-12 event-section-title pt-3 position-absolute">
+        <h2 class="text-left">
+          <strong>EVENT NAME</strong>
+        </h2>
+        <p class="text-left">Subtitle event name</p>
+        <a href="">
+          <i class="icon ion-android-arrow-forward"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container event-section">
+    <div class="row">
+      <div class="col-12 no-gutters">
+        <img class="img-fluid" src="/images/02_event.jpg" alt="">
+      </div>
+      <div class="col-12 event-section-title pt-3 position-absolute">
+        <h2 class="text-left">
+          <strong>EVENT NAME</strong>
+        </h2>
+        <p class="text-left">Subtitle event name</p>
+        <a href="">
+          <i class="icon ion-android-arrow-forward"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container event-section">
+    <div class="row">
+      <div class="col-12 no-gutters">
+        <img class="img-fluid" src="/images/01_event.jpg" alt="">
+      </div>
+      <div class="col-12 event-section-title pt-3 position-absolute">
+        <h2 class="text-left">
+          <strong>EVENT NAME</strong>
+        </h2>
+        <p class="text-left">Subtitle event name</p>
+        <a href="">
+          <i class="icon ion-android-arrow-forward"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+-->
+
+  <!-- session section 
+  <div class="container-full event-section">
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="/images/succes-ticket-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-2 text-white">Company name</span>
+      </a>
+      <div class="">
+        <a href="">
+          <i class="icon ion-ios-person-outline"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="col-12 section-title">
+      <h3>Events title
+      </h3>
+    </div>
+  </div>
+  <hr>
+  <div class="col-12 section-title">
+    <h3>Session list
+      <span>- 12 active sessions</span>
+    </h3>
+  </div>
+  </div>
+  <hr>
+  <div class="container session-section">
+    <div class="row">
+      <div class="col-12 text-center session-subsection">
+        <div class="session-subsection-info">
+          <h3>
+            <strong>20</strong> de abril de 2018 </h3>
+          <h3>
+            <strong>21:30</strong> | La Farga, Hospitalet de Llobregat </h3>
+          <span class="medium">
+            <span>25</span>/
+            <span>200</span> validated tickets</span>
+        </div>
+        <button>Validate tickets in this section</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center session-subsection">
+        <div class="session-subsection-info">
+          <h3>
+            <strong>20</strong> de abril de 2018 </h3>
+          <h3>
+            <strong>21:30</strong> | La Farga, Hospitalet de Llobregat </h3>
+          <span class="medium">
+            <span>25</span>/
+            <span>200</span> validated tickets</span>
+        </div>
+        <button>Validate tickets in this section</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center session-subsection">
+        <div class="session-subsection-info">
+          <h3>
+            <strong>20</strong> de abril de 2018 </h3>
+          <h3>
+            <strong>21:30</strong> | La Farga, Hospitalet de Llobregat </h3>
+          <span class="medium">
+            <span>25</span>/
+            <span>200</span> validated tickets</span>
+        </div>
+        <button>Validate tickets in this section</button>
+      </div>
+    </div>
+  </div>
+-->
+
+  <!-- ticket list section 
+  <div class="container-full tickets-section">
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="/images/succes-ticket-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-2 text-white">Company name</span>
+      </a>
+      <div class="">
+        <a href="">
+          <i class="icon ion-ios-person-outline"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="col-12 section-title">
+      <h3>Validation process
+      </h3>
+      <span>32/200 tickets validated</span>
+    </div>
+  </div>
+  <hr>
+  <div class="col-12 section-tickets-title">
+    <h3>DEMARCO FLAMENCO</h3>
+    <span>
+      <strong>20 de abril de 2018, 21:30</strong>
+    </span>
+    <span> | </span>
+    <span>La Farga, Hospitalet de Llobregat</span>
+  </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row section-ticket-searcher">
+      <div class="col-12">
+        <input placeholder="eg. 123FJBY54..." type="text">
+      </div>
+      <div class="col-12 pt-4">
+        <p class="text-center">
+          <a>Validate with camera</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container section-ticket-list">
+    <div class="row">
+      <div class="col-6">
+        <p class="text-center selected">
+          all
+        </p>
+      </div>
+      <div class="col-6">
+        <p class="text-center">
+          only validated
+        </p>
+      </div>
+    </div>
+    <div class="row section-ticket">
+      <div class="col-12">
+        <div class="section-ticket-content">
+          <span>H223NW3HUWN4</span>
+          </br>
+          <span class="small-text">20/02/2018</span>
+          <div class="section-ticket-validate success text-center">
+            <span>validated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row section-ticket">
+      <div class="col-12">
+        <div class="section-ticket-content">
+          <span>H223NW3HUWN4</span>
+          </br>
+          <span class="small-text">20/02/2018</span>
+          <div class="section-ticket-validate success text-center">
+            <span>validated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row section-ticket">
+      <div class="col-12">
+        <div class="section-ticket-content">
+          <span>H223NW3HUWN4</span>
+          </br>
+          <span class="small-text"></span>
+          <div class="section-ticket-validate text-center">
+            <span>validate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row section-ticket">
+      <div class="col-12">
+        <div class="section-ticket-content">
+          <span>H223NW3HUWN4</span>
+          </br>
+          <span class="small-text"></span>
+          <div class="section-ticket-validate text-center">
+            <span>validate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container-full succes-validation-text">
+  <div class="row">
+    <div class="col-12">
+      <p class="text-center">Your ticket has been succesfully validated</p>
+    </div>
+  </div>
+</div>
+<div class="container-full error-validation-text">
+    <div class="row">
+      <div class="col-12">
+        <p class="text-center">Your ticket has been succesfully validated</p>
+      </div>
+    </div>
+  </div>
+-->
+
+<!-- user-section
+  <div class="container-full user-section">
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="/images/succes-ticket-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-2 text-white">Company name</span>
+      </a>
+      <div class="">
+        <a href="">
+          <i class="icon ion-ios-person-outline"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="col-12 section-title">
+      <h3>HI MATEO!
+        <span class="float-right">Log Out</span>
+      </h3>
+    </div>
+    <hr>
+    <div class="col-12 user-info-section">
+      <p>
+        <span>username: </span>
+        <span>Mateo</span>
+      </p>
+      <p>
+        <span>email: </span>
+        <span>Mateo@xtremetickets.com</span>
+      </p>
+      <p>
+        <span>company name:</span>
+        <span>xtreme tickets</span>
+      </p>
+      <p>
+        <span>user type:</span>
+        <span>admin</span>
+      </p>
+    </div>
+    <div class="col-12 section-title">
+      <h3>Administration events
+      </h3>
+    </div>
+    <hr>
+    <div class="container user-actions">
+      <p class="text-center">Create user for this company</p>
+      <button>Create user</button>
+      <p class="text-center">Upgrade or modify user information</p>
+      <button>Modify user</button>
+      <p class="text-center">Eliminates an user by id</p>
+      <button>Delete user</button>
+    </div>
+  </div>
+-->
+
+  <div class="container-full create-user-section">
+      <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">
+          <img src="/images/succes-ticket-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span class="ml-2 text-white">Company name</span>
+        </a>
+        <div class="">
+          <a href="">
+            <i class="icon ion-ios-person-outline"></i>
+          </a>
+        </div>
+      </nav>
+      <div class="col-12 section-title">
+        <h3>HI MATEO!
+          <span class="float-right">Log Out</span>
+        </h3>
+      </div>
+      <hr>
+      <div class="col-12 user-info-section">
+        <p>
+          <span>username: </span>
+          <span>Mateo</span>
+        </p>
+      </div>
+      <div class="col-12 section-title">
+        <h3>Administration events
+        </h3>
+      </div>
+      <hr>
+      <div class="container pt-4">
+        <form action="">
+          <input class="col-12 mb-4" type="text" placeholder="e.g:username" required>
+          <input class="col-12 mb-4" type="text" placeholder="e.g:surname" required>
+          <input class="col-12 mb-4" type="text" placeholder="e.g:email@email.com" required>
+          <input class="col-12 mb-4" type="password" placeholder="e.g:********" required>
+
+            <input class="" type="radio" value="admin"> 
+            <label for="contactChoice1">Admin</label>
+
+            <input type="radio" value="validator">  
+            <label for="contactChoice1">Validator</label>
+
+          <button>Create</button>
+        </form>
+      </div>
+    </div>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+  <!-- <script src="vendor/jquery/3.3.1/jquery-3.3.1.js" type="javascript"></script>    
+    <script src="vendor/bootstrap/4.0.0/jquery/bootstrap.js" type="javascript"></script> -->
+  <!-- <script src="vendor/popper/1.12.9/umd/popper.min.js" type="javascript"></script> -->
+</body>
+
+</html>
