@@ -371,5 +371,49 @@ button {
     }
     input[type="radio"] {
       margin-bottom: 25px;
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+}
+
+/* delete user */
+.delete-user-section {
+    span:nth-child(2n){
+        color: $title-font-color;
+    }
+    .user-info-section {
+        padding-top: 15px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      @extend %input-box;
+    }
+    input[type="radio"] {
+      margin-bottom: 25px;
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    button {
+        background:$error-background-color !important;
+        color:$error-font-color !important;
+    }
+}
+
+/* update user */
+.update-user-section {
+    span:nth-child(2n){
+        color: $title-font-color;
+    }
+    .user-info-section {
+        padding-top: 15px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      @extend %input-box;
+    }
+    input[type="radio"] {
+      margin-bottom: 25px;
+      margin-left: 10px;
+      margin-right: 5px;
     }
 }

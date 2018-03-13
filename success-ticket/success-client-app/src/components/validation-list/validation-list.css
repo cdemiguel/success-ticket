@@ -1,0 +1,46 @@
+
+.tickets-section .section-title span {
+    font-size: 0.75rem;
+    margin-left: 0; }
+  
+  .section-tickets-title {
+    color: #452DB4;
+    padding: 25px 20px; }
+  
+  .section-ticket-searcher {
+    padding: 25px 20px; }
+    .section-ticket-searcher a {
+      color: #452DB4 !important;
+      border-bottom: 1px solid #452DB4; }
+    .section-ticket-searcher p {
+      margin-bottom: 0; }
+  
+  .section-ticket-list p:not(.text-left).selected {
+    background: #49D59D;
+    color: #335D4C;
+    margin-bottom: 0;
+    padding: 15px 0; }
+  .section-ticket-list p:not(.text-left) {
+    background: #DCDCDC;
+    margin-bottom: 0;
+    padding: 15px 0; }
+  
+  .section-ticket {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    .section-ticket .section-ticket-content {
+      border: 1px solid #DCDCDC;
+      border-left: 2px solid #452DB4;
+      padding: 10px 20px;
+      -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
+      .section-ticket .section-ticket-content span.small-text {
+        font-size: 0.75rem; }
+      .section-ticket .section-ticket-content .section-ticket-validate {
+        padding: 5px 10px;
+        background: #DCDCDC;
+        margin-top: 5px; }
+      .section-ticket .section-ticket-content .success {
+        background: #49D59D;
+        color: #335D4C; }

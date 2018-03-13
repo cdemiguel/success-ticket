@@ -1,0 +1,51 @@
+/* log in user */
+.log-in-section {
+    height: 100vh;
+    background: #C86DD7;
+    background: -moz-linear-gradient(top, #3023AE 0%, #C86DD7 100%);
+    background: -webkit-gradient(linear, top top, right bottom, color-stop(0%, #3023AE), color-stop(100%, #C86DD7));
+    background: -webkit-linear-gradient(top, #3023AE 0%, #C86DD7 100%);
+    background: -o-linear-gradient(top, #3023AE 0%, #C86DD7 100%);
+    background: linear-gradient(to bottom, #3023AE 0%, #C86DD7 100%); }
+    .log-in-section img {
+      width: 70px; }
+    .log-in-section h1 {
+      color: #fff;
+      letter-spacing: 2px; }
+  
+  .log-in-section-form {
+    padding: 0 20px; }
+    .log-in-section-form input {
+      padding: 15px 0; }
+    .log-in-section-form input[type="button"] {
+      background: #fff;
+      border: 0; }
+    .log-in-section-form input[type="text"],
+    .log-in-section-form input[type="password"] {
+      padding: 10px 0;
+      background: transparent;
+      border: 0;
+      padding-left: 20px;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      outline: none !important; }
+    .log-in-section-form ::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #b98cc5; }
+    .log-in-section-form ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #b98cc5; }
+    .log-in-section-form :-ms-input-placeholder {
+      /* IE 10+ */
+      color: #b98cc5; }
+    .log-in-section-form :-moz-placeholder {
+      /* Firefox 18- */
+      color: #b98cc5; }
+  
+  .log-in-section-title {
+    padding: 70px 0 45px; }
+  
+  .log-in-section-recovery {
+    padding: 15px 0; }
+    .log-in-section-recovery a {
+      color: #fff; }

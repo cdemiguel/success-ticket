@@ -1,0 +1,12 @@
+/* delete user */
+.delete-user-section span:nth-child(2n) {
+    color: #452DB4; }
+  .delete-user-section .user-info-section {
+    padding-top: 15px; }
+  .delete-user-section input[type="radio"] {
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 5px; }
+  .delete-user-section button {
+    background: #FB8392 !important;
+    color: #793039 !important; }

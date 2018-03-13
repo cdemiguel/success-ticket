@@ -1,0 +1,19 @@
+.succes-validation-text {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff; }
+    .succes-validation-text p {
+      margin-bottom: 0; }
+  
+  .error-validation-text {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: #FB8392;
+    color: #793039; }
+    .error-validation-text p {
+      margin-bottom: 0; }

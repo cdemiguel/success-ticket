@@ -1,0 +1,10 @@
+/* update user */
+.update-user-section span:nth-child(2n) {
+    color: #452DB4; }
+  .update-user-section .user-info-section {
+    padding-top: 15px; }
+  .update-user-section input[type="radio"] {
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 5px; }
+  

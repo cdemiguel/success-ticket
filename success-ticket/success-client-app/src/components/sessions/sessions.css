@@ -1,0 +1,10 @@
+/* session section */
+.session-subsection {
+    padding: 25px 20px;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); }
+    .session-subsection h3 {
+      margin-bottom: 5px; }
+    .session-subsection .session-subsection-info {
+      padding: 15px 0; }

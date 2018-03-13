@@ -41,7 +41,9 @@ button {
 
 /* input-box */
 .section-ticket-searcher input, .create-user-section input[type="text"],
-.create-user-section input[type="password"] {
+.create-user-section input[type="password"], .delete-user-section input[type="text"],
+.delete-user-section input[type="password"], .update-user-section input[type="text"],
+.update-user-section input[type="password"] {
   border: 1px solid #DCDCDC;
   padding: 10px;
   color: #6A6A6A;
@@ -262,6 +264,31 @@ h3 {
 .create-user-section .user-info-section {
   padding-top: 15px; }
 .create-user-section input[type="radio"] {
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px; }
+
+/* delete user */
+.delete-user-section span:nth-child(2n) {
+  color: #452DB4; }
+.delete-user-section .user-info-section {
+  padding-top: 15px; }
+.delete-user-section input[type="radio"] {
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px; }
+.delete-user-section button {
+  background: #FB8392 !important;
+  color: #793039 !important; }
+
+/* update user */
+.update-user-section span:nth-child(2n) {
+  color: #452DB4; }
+.update-user-section .user-info-section {
+  padding-top: 15px; }
+.update-user-section input[type="radio"] {
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px; }
 
 /*# sourceMappingURL=main.css.map */

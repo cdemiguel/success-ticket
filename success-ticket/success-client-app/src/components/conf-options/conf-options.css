@@ -1,0 +1,19 @@
+.user-section .section-title span {
+    color: #452DB4;
+    border-bottom: 1px solid #452DB4; }
+  .user-section .user-info-section {
+    padding-top: 15px; }
+    .user-section .user-info-section p {
+      margin-bottom: 0.2rem; }
+    .user-section .user-info-section span {
+      color: #6A6A6A;
+      border-bottom: 0; }
+    .user-section .user-info-section span:nth-child(2n) {
+      color: #452DB4; }
+  .user-section .user-actions {
+    padding-top: 15px; }
+    .user-section .user-actions p {
+      font-size: 0.875rem;
+      margin-bottom: 0; }
+    .user-section .user-actions button {
+      margin: 10px 0; }

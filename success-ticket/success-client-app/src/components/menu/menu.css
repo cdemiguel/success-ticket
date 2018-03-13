@@ -1,0 +1,16 @@
+/* nav bar */
+.navbar {
+    background: #C86DD7;
+    background: -moz-linear-gradient(left, #3023AE 0%, #C86DD7 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #3023AE), color-stop(100%, #C86DD7));
+    background: -webkit-linear-gradient(left, #3023AE 0%, #C86DD7 100%);
+    background: -o-linear-gradient(left, #3023AE 0%, #C86DD7 100%);
+    background: linear-gradient(to right, #3023AE 0%, #C86DD7 100%); }
+    .navbar .navbar-brand {
+      font-size: 1rem; }
+      .navbar .navbar-brand span {
+        margin-top: 5px;
+        vertical-align: sub; }
+    .navbar i {
+      color: #fff; }
+  
