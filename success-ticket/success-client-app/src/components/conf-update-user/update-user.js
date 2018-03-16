@@ -6,7 +6,13 @@ class UpdateUser extends Component {
     render() {
         return (
 
-            <div className="update-user-section">
+            <div className="update-user-section user-section">
+                <div className="col-12 section-title">
+                    <h3>HI MATEO!
+                        <span className="float-right">Log Out</span>
+                    </h3>
+                </div>
+                <hr />
                 <div className="col-12 user-info-section">
                     <p>
                         <span>username: </span>

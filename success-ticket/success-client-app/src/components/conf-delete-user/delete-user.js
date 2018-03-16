@@ -5,7 +5,7 @@ class DeleteUser extends Component {
 
     render() {
         return (
-            <div className="delete-user-section">
+            <div className="delete-user-section user-section">
                 <div className="col-12 section-title">
                     <h3>HI MATEO!
                         <span className="float-right">Log Out</span>

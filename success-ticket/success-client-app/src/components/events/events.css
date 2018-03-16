@@ -3,6 +3,9 @@
   
   .event-section-title {
     background-color: rgba(255, 255, 255, 0.5); }
+    .event-section-title h2,
+    .event-section-title p{
+      color:#382c42 !important }
     .event-section-title a {
       position: absolute;
       top: 10px;

@@ -1,4 +1,14 @@
 /* update user */
+.update-user-section input[type="text"],
+.update-user-section input[type="password"] {
+  border: 1px solid #DCDCDC;
+  padding: 10px;
+  color: #6A6A6A;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  outline: none !important; }
 .update-user-section span:nth-child(2n) {
     color: #452DB4; }
   .update-user-section .user-info-section {

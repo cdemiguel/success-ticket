@@ -1,0 +1,399 @@
+/* font */
+/* font colors */
+/* font sizes */
+/* background color from/to */
+/* generic lateral padding */
+/* background color */
+/* box-shadow mixin */
+/* box-shadow mixin session */
+/* box-shadow mixin */
+/* gray background */
+/* background success / error colors */
+/* hr */
+hr {
+  height: 1px;
+  background: #c86dd7;
+  background: -moz-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    color-stop(0%, #3023ae),
+    color-stop(100%, #c86dd7)
+  );
+  background: -webkit-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -o-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(to right, #3023ae 0%, #c86dd7 100%);
+  margin: 0;
+}
+
+/* icons */
+.navbar i,
+.event-section-title a i {
+  width: 30px;
+  font-size: 35px;
+}
+
+/* main button */
+button {
+  border: 0;
+  padding: 13px;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  background: #c86dd7;
+  background: -moz-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    color-stop(0%, #3023ae),
+    color-stop(100%, #c86dd7)
+  );
+  background: -webkit-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -o-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(to right, #3023ae 0%, #c86dd7 100%);
+}
+
+/* input-box */
+.section-ticket-searcher input,
+.create-user-section input[type="text"],
+.create-user-section input[type="password"],
+.delete-user-section input[type="text"],
+.delete-user-section input[type="password"],
+.update-user-section input[type="text"],
+.update-user-section input[type="password"] {
+  border: 1px solid #dcdcdc;
+  padding: 10px;
+  color: #6a6a6a;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  outline: none !important;
+}
+
+/***************************************************************/
+body {
+  color: #6a6a6a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.medium {
+  font-size: 0.875rem;
+}
+
+.no-gutters {
+  padding: 0;
+}
+
+/* log in user */
+.log-in-section {
+  height: 100vh;
+  background: #c86dd7;
+  background: -moz-linear-gradient(top, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-gradient(
+    linear,
+    top top,
+    right bottom,
+    color-stop(0%, #3023ae),
+    color-stop(100%, #c86dd7)
+  );
+  background: -webkit-linear-gradient(top, #3023ae 0%, #c86dd7 100%);
+  background: -o-linear-gradient(top, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(to bottom, #3023ae 0%, #c86dd7 100%);
+}
+.log-in-section img {
+  width: 70px;
+}
+.log-in-section h1 {
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.log-in-section-form {
+  padding: 0 20px;
+}
+.log-in-section-form input {
+  padding: 15px 0;
+}
+.log-in-section-form input[type="button"] {
+  background: #fff;
+  border: 0;
+}
+.log-in-section-form input[type="text"],
+.log-in-section-form input[type="password"] {
+  padding: 10px 0;
+  background: transparent;
+  border: 0;
+  padding-left: 20px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  outline: none !important;
+}
+.log-in-section-form ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #b98cc5;
+}
+.log-in-section-form ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #b98cc5;
+}
+.log-in-section-form :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #b98cc5;
+}
+.log-in-section-form :-moz-placeholder {
+  /* Firefox 18- */
+  color: #b98cc5;
+}
+
+.log-in-section-title {
+  padding: 70px 0 45px;
+}
+
+.log-in-section-recovery {
+  padding: 15px 0;
+}
+.log-in-section-recovery a {
+  color: #fff;
+}
+
+/* event section */
+/* nav bar */
+.navbar {
+  background: #c86dd7;
+  background: -moz-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    color-stop(0%, #3023ae),
+    color-stop(100%, #c86dd7)
+  );
+  background: -webkit-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: -o-linear-gradient(left, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(to right, #3023ae 0%, #c86dd7 100%);
+}
+.navbar .navbar-brand {
+  font-size: 1rem;
+}
+.navbar .navbar-brand span {
+  margin-top: 5px;
+  vertical-align: sub;
+}
+.navbar i {
+  color: #fff;
+}
+
+/* title section ********************************/
+.section-title {
+  padding: 25px 20px;
+}
+.section-title h3 {
+  font-size: 1rem;
+}
+.section-title span {
+  margin-left: 5px;
+}
+
+/* events module and images */
+.event-section h2,
+.event-section p {
+  font-size: 1rem;
+}
+
+.event-section-title {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.event-section-title a {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.event-section-title a i {
+  color: #452db4;
+}
+
+/* session section */
+.session-subsection {
+  padding: 25px 20px;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+.session-subsection h3 {
+  margin-bottom: 5px;
+}
+.session-subsection .session-subsection-info {
+  padding: 15px 0;
+}
+
+/* tickets section */
+.tickets-section .section-title span {
+  font-size: 0.75rem;
+  margin-left: 0;
+}
+
+.section-tickets-title {
+  color: #452db4;
+  padding: 25px 20px;
+}
+
+.section-ticket-searcher {
+  padding: 25px 20px;
+}
+.section-ticket-searcher a {
+  color: #452db4 !important;
+  border-bottom: 1px solid #452db4;
+}
+.section-ticket-searcher p {
+  margin-bottom: 0;
+}
+
+.section-ticket-list p:not(.text-left).selected {
+  background: #49d59d;
+  color: #335d4c;
+  margin-bottom: 0;
+  padding: 15px 0;
+}
+.section-ticket-list p:not(.text-left) {
+  background: #dcdcdc;
+  margin-bottom: 0;
+  padding: 15px 0;
+}
+
+.section-ticket {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.section-ticket .section-ticket-content {
+  border: 1px solid #dcdcdc;
+  border-left: 2px solid #452db4;
+  padding: 10px 20px;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+.section-ticket .section-ticket-content span.small-text {
+  font-size: 0.75rem;
+}
+.section-ticket .section-ticket-content .section-ticket-validate {
+  padding: 5px 10px;
+  background: #dcdcdc;
+  margin-top: 5px;
+}
+.section-ticket .section-ticket-content .success {
+  background: #49d59d;
+  color: #335d4c;
+}
+
+.succes-validation-text {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #49d59d;
+  color: #335d4c;
+}
+.succes-validation-text p {
+  margin-bottom: 0;
+}
+
+.error-validation-text {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #fb8392;
+  color: #793039;
+}
+.error-validation-text p {
+  margin-bottom: 0;
+}
+
+/* user configuration Admin */
+.user-section .section-title span {
+  color: #452db4;
+  border-bottom: 1px solid #452db4;
+}
+.user-section .user-info-section {
+  padding-top: 15px;
+}
+.user-section .user-info-section p {
+  margin-bottom: 0.2rem;
+}
+.user-section .user-info-section span {
+  color: #6a6a6a;
+  border-bottom: 0;
+}
+.user-section .user-info-section span:nth-child(2n) {
+  color: #452db4;
+}
+.user-section .user-actions {
+  padding-top: 15px;
+}
+.user-section .user-actions p {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+.user-section .user-actions button {
+  margin: 10px 0;
+}
+
+/* create user */
+.create-user-section span:nth-child(2n) {
+  color: #452db4;
+}
+.create-user-section .user-info-section {
+  padding-top: 15px;
+}
+.create-user-section input[type="radio"] {
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+/* delete user */
+.delete-user-section span:nth-child(2n) {
+  color: #452db4;
+}
+.delete-user-section .user-info-section {
+  padding-top: 15px;
+}
+.delete-user-section input[type="radio"] {
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.delete-user-section button {
+  background: #fb8392 !important;
+  color: #793039 !important;
+}
+
+/* update user */
+.update-user-section span:nth-child(2n) {
+  color: #452db4;
+}
+.update-user-section .user-info-section {
+  padding-top: 15px;
+}
+.update-user-section input[type="radio"] {
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */

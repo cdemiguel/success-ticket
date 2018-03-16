@@ -11,6 +11,20 @@
 /* gray background */
 /* background success / error colors */
 /* hr */
+body {
+  color: #6A6A6A; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+h3 {
+  font-size: 1rem; }
+
+.medium {
+  font-size: 0.875rem; }
+
+.no-gutters {
+  padding: 0; }
 
 hr {
   height: 1px;
@@ -53,19 +67,11 @@ button {
   width: 100%;
   outline: none !important; }
 
-/***************************************************************/
-body {
-  color: #6A6A6A; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
-
-h3 {
-  font-size: 1rem; }
-
-.medium {
-  font-size: 0.875rem; }
-
-.no-gutters {
-  padding: 0; }
-
+/* section-titles */
+.section-title{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.section-title span {
+  font-size: 0.75rem;
+}
