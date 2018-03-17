@@ -54,9 +54,14 @@ class Tickets extends Component {
           <hr />
           <div className="container">
             <div className="row section-ticket-searcher">
+
+            <form action>
               <div className="col-12">
                 <input placeholder="eg. 123FJBY54..." type="text" />
+                <input className="mt-3" type="button" value="Search ticket"/>
               </div>
+            </form>
+
               <div className="col-12 pt-4">
                 <p className="text-center">
                   <a>Validate with camera</a>

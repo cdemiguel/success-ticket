@@ -44,3 +44,6 @@
       .section-ticket .section-ticket-content .success {
         background: #49D59D;
         color: #335D4C; }
+      .section-ticket-searcher input[type="button"] {
+        color: #fff !important;
+      }
