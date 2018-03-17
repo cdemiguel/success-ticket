@@ -46,7 +46,7 @@ class Sessions extends Component {
         <div className="col-12 section-title">
           <h3>
             Session list
-            <span>- 12 active sessions</span>
+            <span> 12 active sessions</span>
           </h3>
         </div>
         <hr />

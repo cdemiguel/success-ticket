@@ -26,7 +26,7 @@ class Events extends Component {
         <div className="col-12 section-title">
           <h3>
             Events list
-            <span>-ordered by date-</span>
+            <span></span>
           </h3>
         </div>
         <hr />
