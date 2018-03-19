@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import api_client from "./../api-client";
 import "./validation-list.css";
 
-import TicketModule from "./ticket-module/ticket-module";
+import TicketModule from "../ticket-module/ticket-module";
 import NotificationMsg from "../notification-msg/notification-msg";
+import ValidationCamera from "../validation-camera/validation-camera";
 
 class Tickets extends Component {
   constructor() {
     super();
     this.state = {
-      tickets: []
+      tickets: [],
+      isToggleOn: true
     };
   }
 
@@ -24,9 +26,15 @@ class Tickets extends Component {
     api_client.getTicketsList(idEvent, idSession).then(tickets => {
       this.setState({ tickets });
     });
-  };
+  }
 
-  render() {
+	toggleValidationForm = () => {
+		this.setState(prevState => ({
+			isToggleOn: !prevState.isToggleOn
+		}));
+	}
+
+  render(props) {
     const { tickets } = this.state;
     const ticketsList = tickets
       ? tickets[0] ? tickets[0].tickets : null
@@ -34,6 +42,8 @@ class Tickets extends Component {
 
     const ticketsLocation = tickets.map(ticket => ticket.location);
     const ticketsDate = tickets.map(ticket => ticket.date);
+
+    const isToggleOn = this.state.isToggleOn;
 
     return (
       <div>
@@ -44,7 +54,7 @@ class Tickets extends Component {
           </div>
           <hr />
           <div className="col-12 section-tickets-title">
-            <h3>DEMARCO FLAMENCO</h3>
+            <h3>{this.props.eventTitle}</h3>
             <span>
               <strong>{ticketsDate}</strong>
             </span>
@@ -55,18 +65,28 @@ class Tickets extends Component {
           <div className="container">
             <div className="row section-ticket-searcher">
 
-            <form action>
-              <div className="col-12">
-                <input placeholder="eg. 123FJBY54..." type="text" />
-                <input className="mt-3" type="button" value="Search ticket"/>
-              </div>
-            </form>
 
-              <div className="col-12 pt-4">
+              <div className="col-12 pb-4">
                 <p className="text-center">
-                  <a>Validate with camera</a>
+
+                <a onClick={this.toggleValidationForm}>
+                  {this.state.isToggleOn ? 'Validate with camera' : 'Validate with form'}
+                </a>
+
                 </p>
               </div>
+
+              {isToggleOn ? (
+              <form action>
+                <div className="col-12">
+                  <input placeholder="eg. 123FJBY54..." type="text" />
+                  <input className="mt-3" type="button" value="Search ticket" />
+                </div>
+              </form>
+              ) : (
+              <ValidationCamera />
+              )}
+
             </div>
           </div>
           <div className="container">

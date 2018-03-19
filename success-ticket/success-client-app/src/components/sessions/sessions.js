@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api_client from "./../api-client";
 import "./sessions.css";
-import { HashRouter, withRouter, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class Sessions extends Component {
   constructor() {
@@ -16,7 +16,8 @@ class Sessions extends Component {
   componentDidMount() {
     this.showSessions(
       this.props.match.params.idEvent,
-      this.props.match.params.title
+      this.props.match.params.title,
+
     );
   }
 
@@ -25,11 +26,15 @@ class Sessions extends Component {
       this.setState({ sessions });
       this.setState({ idSessions });
       this.setState({ title });
+
+      this.props.sendeventTitle(this.state.title)
+
+      
     });
   };
 
   render() {
-    var { sessions } = this.state;
+    const { sessions } = this.state;
     const sessionsList = sessions
       ? sessions[0] ? sessions[0].sessions : null
       : null;

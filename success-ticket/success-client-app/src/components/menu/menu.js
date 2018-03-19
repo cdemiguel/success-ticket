@@ -3,7 +3,10 @@ import { Link } from "react-router-dom"
 import "./menu.css"
 
 class Menu extends Component {
-  render() {
+  render(props) {
+
+    const {companyName} = this.props
+    
     return (
       <div className="container-full event-section">
         <nav className="navbar navbar-light">
@@ -16,11 +19,11 @@ class Menu extends Component {
               height={30}
               className="d-inline-block align-top"
             />
-            <span className="ml-2 text-white">Company name</span>
+            <span className="ml-2 text-white">{companyName}</span>
           </a>
           </Link>
           
-          <Link  to={`/r/user-configuration`}>
+          <Link to={`/r/user-configuration`}>
           <div>
             <a href="route">
               <i className="icon ion-ios-person-outline" />

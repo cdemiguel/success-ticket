@@ -1,21 +1,28 @@
 import React, { Component } from "react";
 import "./events.css";
 import api_client from "./../api-client";
-import { HashRouter, withRouter, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class Events extends Component {
   constructor() {
     super();
     this.state = {
-      events: []
+      events: [],
+      companyName:""
     };
   }
 
   componentDidMount() {
     api_client.getEventList().then(events => {
       this.setState({ events });
+
+      const companyName = events[0].company
+      this.setState({ companyName });
+      
+      this.props.sendCompanyName(companyName)
     });
   }
+
 
   render() {
     const { events } = this.state;

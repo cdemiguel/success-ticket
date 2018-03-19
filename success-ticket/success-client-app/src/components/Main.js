@@ -15,6 +15,22 @@ import DeleteUser from "./conf-delete-user/delete-user";
 import UpdateUser from "./conf-update-user/update-user";
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      companyName: "",
+      eventTitle:""
+    };
+  }
+
+  setCompanyName = (companyName) => {
+    this.setState({ companyName });
+  }
+
+  seteventTitle = (eventTitle) => {
+    this.setState({ eventTitle });
+  }
+  
   render() {
     return (
       <div>
@@ -22,18 +38,18 @@ class Main extends Component {
           <div>
             <Route exact path="/log-in" render={() => <Login />} />
 
-            <Route path="/r" render={() => <Menu />} />
+            <Route path="/r" render={() => <Menu companyName={this.state.companyName} />} />
 
-            <Route path="/r/events" render={() => <Events />} />
+            <Route path="/r/events" render={() => <Events sendCompanyName={this.setCompanyName} />} />
 
             <Route
               path="/r/sessions/:title/:idEvent"
-              render={routeProps => <Sessions {...routeProps} />}
+              render={routeProps => <Sessions sendeventTitle={this.seteventTitle} {...routeProps} />}
             />
 
             <Route
               path="/r/tickets/:idEvent/:idSession"
-              render={routeProps => <Tickets {...routeProps} />}
+              render={routeProps => <Tickets eventTitle={this.state.eventTitle} {...routeProps} />}
             />
 
             <Route
