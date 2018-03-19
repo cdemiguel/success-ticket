@@ -42,7 +42,6 @@ eventRoute.route('/sessions/:eventId')
     }) 
 })
 
-
 /* get tickets */
 eventRoute.route('/sessions/tickets/:eventId/:sessionId')
     .get((req, res)=>{
@@ -64,10 +63,10 @@ eventRoute.route('/sessions/tickets/:eventId/:sessionId')
 })
 
 /* find ticket */
-eventRoute.route('/sessions/tickets/:ticketId')
+eventRoute.route('/sessions/ticket/:userId/:ticketId')
     .get((req, res)=>{
-        const { params: { ticketId } } = req
-        logic.findTicket(ticketId)
+        const { params: { userId, ticketId } } = req
+        logic.findTicket(userId, ticketId)
         .then(tickets=>{
             res.json({
                 status:"OK",
@@ -83,11 +82,10 @@ eventRoute.route('/sessions/tickets/:ticketId')
         }) 
     })
 
-/* validate ticket, update flag - one direction only - 
-eventRoute.route('/sessions/tickets/validate')
+eventRoute.route('/sessions/validate-ticket/:userId/:ticketId')
     .put((req, res)=>{
-        const { body: { idTicket } } = req
-        logic.validateTicket(idTicket)
+        const { params: { userId, ticketId } } = req
+        logic.updateTicket(userId, ticketId)
         .then(tickets=>{
             res.json({
                 status:"OK",
@@ -100,8 +98,8 @@ eventRoute.route('/sessions/tickets/validate')
                 status: "KO",
                 message: err.message
             })
-        })  
+        }) 
     })
-*/
+
 
 module.exports = eventRoute

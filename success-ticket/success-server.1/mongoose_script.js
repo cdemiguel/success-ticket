@@ -42,7 +42,7 @@ const session = new Session({
 
 function addTickets(){
 
-    for(let i=0;i<10000;i++){
+    for(let i=0;i<10;i++){
         const code = i +'QWERTYU'
         const ticket = new Ticket({
             code,

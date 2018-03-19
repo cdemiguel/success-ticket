@@ -26,7 +26,7 @@ const logic = {
             Event.find({_id: eventId})
                 .then(event => {
                     const selectedSession = event[0].sessions.filter(session=>{
-                        return session.id==sessionId
+                        return session.id == sessionId
                     })
                     selectedSession[0].tickets = selectedSession[0].tickets.slice(0,9)
                     return resolve(selectedSession)
@@ -35,23 +35,42 @@ const logic = {
         })
     },
     
-    findTicket(ticketId) {
+    findTicket(userId, ticketId) {
         return new Promise((resolve, reject) => {
-            Event.find({_id:ticketId})
-                .then(resolve)
-                .catch(reject)
+            User.find({ _id: userId })
+            .then(user => {
+                Event.populate(user, { path: 'events', select:'sessions' })
+                .then(tickets => {
+                    const selectedTicket = tickets[0].events[0].sessions[0].tickets.filter(ticket=>{
+                        return ticket._id == ticketId   
+                    })
+                    return resolve(selectedTicket)
+                })
+            })
+            .catch(reject)
+        })
+    },
+
+    updateTicket(userId, ticketId) {
+        return new Promise((resolve, reject) => {
+            User.find({ _id: userId })
+            .then(user => {
+                User.populate(user, { path: 'events', select:'sessions' })
+                //Event.populate(user, { path: 'events', select:'sessions' })
+                .then(tickets => {
+                    const selectedTicket = tickets[0].events[0].sessions[0].tickets.filter(ticket=>{
+                        if(ticket._id == ticketId)
+                        ticket.set({status:true})
+                        console.log(ticket)
+                        return ticket  
+                    })
+                    return resolve(selectedTicket)
+                })
+            })
+            .catch(reject)
         })
     }
 
-    // validateTicket(idTicket) {
-    //     return new Promise((resolve, reject) => {
-    //         Ticket.find({_id: idTicket})
-    //             .then(ticket => {
-    //                 return Ticket.updateOne({ _id: idTicket }, { code, validated, status: true })
-    //             })
-    //             .catch(reject)
-    //     })
-    // },
 
 }
 
