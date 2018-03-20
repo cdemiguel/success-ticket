@@ -8,7 +8,7 @@
     padding: 25px 20px; }
   
   .section-ticket-searcher {
-    padding: 25px 20px; }
+    padding: 25px 20px 0 20px; }
     .section-ticket-searcher a {
       color: #452DB4 !important;
       border-bottom: 1px solid #452DB4; }
@@ -44,6 +44,15 @@
       .section-ticket .section-ticket-content .success {
         background: #49D59D;
         color: #335D4C; }
-      .section-ticket-searcher input[type="button"] {
+      .section-ticket-searcher input[type="submit"] {
         color: #fff !important;
+      }
+      .section-validate-tickets {
+        height: 100vh;
+      }
+      .s-alert-bottom {
+        bottom: 0 !important;
+      }
+      .s-alert-success {
+        background: #49D59D;
       }

@@ -3,7 +3,7 @@ let api_client;
 (function(){
 
     const axios = require('axios')
-    const baseUrl = 'http://192.168.0.15:8080'
+    const baseUrl = 'http://localhost:8080'
 
     api_client = {
 
@@ -17,6 +17,14 @@ let api_client;
 
         getTicketsList(eventId, sessionId){
             return axios.get(`${baseUrl}/events/sessions/tickets/${eventId}/${sessionId}`).then(res => res.data.data)
+        },
+
+        getTicket(eventId, sessionId, ticketId){
+            return axios.get(`${baseUrl}/events/sessions/ticket/${eventId}/${sessionId}/${ticketId}`).then(res => res.data)
+        },
+
+        validateTicket(eventId, sessionId, ticketId){
+            return axios.put(`${baseUrl}/events/sessions/validate-ticket/${eventId}/${sessionId}/${ticketId}`).then(res => res.data)
         }
 
 

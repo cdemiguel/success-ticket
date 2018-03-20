@@ -1,17 +1,25 @@
-import React, { Component } from "react";
-import api_client from "./../api-client";
-import "./validation-list.css";
+import React, { Component } from "react"
+import api_client from "./../api-client"
 
-import TicketModule from "../ticket-module/ticket-module";
-import NotificationMsg from "../notification-msg/notification-msg";
-import ValidationCamera from "../validation-camera/validation-camera";
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
+
+import "./validation-list.css"
+
+import TicketModule from "../ticket-module/ticket-module"
+import NotificationMsg from "../notification-msg/notification-msg"
+import ValidationCamera from "../validation-camera/validation-camera"
 
 class Tickets extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       tickets: [],
-      isToggleOn: true
+      isToggleOn: true,
+      query: "",
+      selectedTicket: "",
+      status: ""
     };
   }
 
@@ -19,38 +27,95 @@ class Tickets extends Component {
     this.showTickets(
       this.props.match.params.idEvent,
       this.props.match.params.idSession
-    );
+    )
   }
 
   showTickets = (idEvent, idSession) => {
     api_client.getTicketsList(idEvent, idSession).then(tickets => {
-      this.setState({ tickets });
-    });
+      this.setState({ tickets })
+    })
   }
 
-	toggleValidationForm = () => {
-		this.setState(prevState => ({
-			isToggleOn: !prevState.isToggleOn
-		}));
-	}
+  toggleValidationForm = () => {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }))
+  }
+
+  keepInput = query => this.setState({ query })
+
+  submit = () => {
+
+    const idEvent = this.props.match.params.idEvent
+    const idSession = this.props.match.params.idSession
+    const idTicket = this.state.query
+
+    api_client.getTicket(idEvent, idSession, idTicket).then(selectedTicket => {
+
+      if (selectedTicket.status === 'OK') {
+
+        const _status = selectedTicket.data.status
+        this.setState({ status: _status })
+
+        selectedTicket = selectedTicket.data
+        this.setState({ selectedTicket })
+
+      } else {
+        Alert.error('The ticket was not found', {
+          position: 'bottom',
+          effect: 'scale',
+          beep: true,
+          timeout: 3000
+        });
+      }
+    })
+
+    this.setState({ query: '' })
+  }
+
+  setStatus = (status) => {
+
+    console.log(status.status)
+    if (status.status == 'OK') {
+      Alert.success('Your ticket has been succesfully validated', {
+        position: 'bottom',
+        effect: 'scale',
+        beep: true,
+        timeout: 3000
+      })
+      this.setState({ status });
+    } else {
+      Alert.error('Your ticket has been already validated', {
+        position: 'bottom',
+        effect: 'scale',
+        beep: true,
+        timeout: 3000
+      });
+    }
+
+  }
+
+  setSelectedTicket = (selectedTicket) => {
+    this.setState({ selectedTicket });
+  }
 
   render(props) {
-    const { tickets } = this.state;
-    const ticketsList = tickets
-      ? tickets[0] ? tickets[0].tickets : null
-      : null;
+    const { tickets } = this.state
 
-    const ticketsLocation = tickets.map(ticket => ticket.location);
-    const ticketsDate = tickets.map(ticket => ticket.date);
+    const ticketsList = tickets ? tickets.tickets : null
 
-    const isToggleOn = this.state.isToggleOn;
+    const ticketsLocation = tickets.location
+    const ticketsDate = tickets.date
+
+    const isToggleOn = this.state.isToggleOn
+
+    const { selectedTicket } = this.state
 
     return (
-      <div>
-        <div>
+      <div className="section-validate-tickets">
+        <div className="section-validate-tickets">
           <div className="col-12 section-title">
             <h3>Validation process</h3>
-            <span>32/200 tickets validated</span>
           </div>
           <hr />
           <div className="col-12 section-tickets-title">
@@ -65,46 +130,47 @@ class Tickets extends Component {
           <div className="container">
             <div className="row section-ticket-searcher">
 
-
               <div className="col-12 pb-4">
                 <p className="text-center">
-
-                <a onClick={this.toggleValidationForm}>
-                  {this.state.isToggleOn ? 'Validate with camera' : 'Validate with form'}
-                </a>
-
+                  <a onClick={this.toggleValidationForm}>
+                    {this.state.isToggleOn ? 'Validate with camera' : 'Validate with form'}
+                  </a>
                 </p>
               </div>
 
               {isToggleOn ? (
-              <form action>
-                <div className="col-12">
-                  <input placeholder="eg. 123FJBY54..." type="text" />
-                  <input className="mt-3" type="button" value="Search ticket" />
-                </div>
-              </form>
+                <form onSubmit={e => { e.preventDefault(); this.submit() }}>
+                  <div className="col-12">
+                    <input placeholder="eg. 123FJBY54..." type="text"
+                      onChange={(e) => this.keepInput(e.target.value)}
+                      value={this.state.query} required />
+                    <button className="mt-3" type="submit">Search ticket</button>
+                  </div>
+                </form>
               ) : (
-              <ValidationCamera />
-              )}
+                  <ValidationCamera
+                    event={this.props.match.params.idEvent}
+                    session={this.props.match.params.idSession}
+                    setStatus={this.setStatus}
+                    setSelectedTicket={this.setSelectedTicket} />
+                )}
 
             </div>
           </div>
-          <div className="container">
-            <div className="row section-ticket-list">
-              <div className="col-6">
-                <p className="text-center selected">all</p>
-              </div>
-              <div className="col-6">
-                <p className="text-center">only validated</p>
-              </div>
-            </div>
-          </div>
-          {tickets &&
-            ticketsList &&
-            ticketsList.map((ticket, index) => <TicketModule key={index} />)}
 
-          <NotificationMsg />
+          {selectedTicket ?
+            <TicketModule
+              ticket={this.state.selectedTicket}
+              event={this.props.match.params.idEvent}
+              session={this.props.match.params.idSession}
+              status={this.state.status}
+              setStatus={this.setStatus}
+              setSelectedTicket={this.setSelectedTicket}
+            />
+            : null
+          }
         </div>
+        <Alert stack={{ limit: 3 }} />
       </div>
     );
   }

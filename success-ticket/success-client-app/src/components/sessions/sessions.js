@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import api_client from "./../api-client";
-import "./sessions.css";
-import { withRouter, Link } from "react-router-dom";
+import React, { Component } from "react"
+import api_client from "./../api-client"
+import "./sessions.css"
+import { withRouter, Link } from "react-router-dom"
 
 class Sessions extends Component {
   constructor() {
@@ -10,22 +10,21 @@ class Sessions extends Component {
       sessions: [],
       idSessions: "",
       title: ""
-    };
+    }
   }
 
   componentDidMount() {
     this.showSessions(
       this.props.match.params.idEvent,
       this.props.match.params.title,
-
-    );
+    )
   }
 
   showSessions = (idSessions, title) => {
     api_client.getSessionsList(idSessions).then(sessions => {
-      this.setState({ sessions });
-      this.setState({ idSessions });
-      this.setState({ title });
+      this.setState({ sessions })
+      this.setState({ idSessions })
+      this.setState({ title })
 
       this.props.sendeventTitle(this.state.title)
 
@@ -34,13 +33,23 @@ class Sessions extends Component {
   };
 
   render() {
-    const { sessions } = this.state;
+    const { sessions } = this.state
     const sessionsList = sessions
       ? sessions[0] ? sessions[0].sessions : null
-      : null;
+      : null
 
-    var idEvent = this.state.sessions;
-    idEvent = idEvent.map(eventNumber => eventNumber._id).join("");
+    let sessionsNumber = this.state.sessions
+    sessionsNumber = sessionsNumber.map(sessionsNumber=>sessionsNumber.sessions)
+    let counter = 0
+    let number = []
+    sessionsNumber.forEach(function(element) {
+      number.push(element.length)
+    });
+    number =number.toString() 
+
+    let idEvent = this.state.sessions
+    idEvent = idEvent.map(eventNumber => eventNumber._id).join("")
+
 
     return (
       <div>
@@ -51,7 +60,7 @@ class Sessions extends Component {
         <div className="col-12 section-title">
           <h3>
             Session list
-            <span> 12 active sessions</span>
+            <span> - {number} active sessions</span>
           </h3>
         </div>
         <hr />
@@ -64,11 +73,7 @@ class Sessions extends Component {
                 <div className="col-12 text-center session-subsection">
                   <div className="session-subsection-info">
                     <h3>{session.date}</h3>
-                    <h3>{session.location}</h3>
-                    <span className="medium">
-                      <span>25</span>/
-                      <span>200</span> validated tickets
-                    </span>
+                    <h3 className="mt-2">{session.location}</h3>
                   </div>
 
                   <Link to={`/r/tickets/${idEvent}/${session._id}`}>

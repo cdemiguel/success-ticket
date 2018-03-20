@@ -1,35 +1,55 @@
 import React, { Component } from "react";
+import api_client from "./../api-client"
 
 class TicketModule extends Component {
+  constructor() {
+    super()
+  }
+
+  validate = () => {
+
+    const idEvent = this.props.event
+    const idSession = this.props.session
+    const idTicket = this.props.ticket._id
+
+    api_client.validateTicket(idEvent, idSession, idTicket).then(status=>{
+      this.props.setStatus(status)
+
+      if(status.data)
+        this.props.setSelectedTicket(status.data)
+
+    })
+
+  }
+
   render() {
+
     return (
       <div className="container">
-        {/* <div className="row section-ticket">
-                        <div className="col-12">
-                            <div className="section-ticket-content">
-                                <span>H223NW3HUWN4</span>
-                                <br />
-                                <span className="small-text">20/02/2018</span>
-                                <div className="section-ticket-validate success text-center">
-                                    <span>validated</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-        <div className="row section-ticket">
+        <div onClick={this.validate} className="row section-ticket">
           <div className="col-12">
-            <div className="section-ticket-content">
-              <span>H223NW3HUWN4</span>
+            <div className="section-ticket-content text-center">
+              <span>{this.props.ticket._id}</span>
               <br />
               <span className="small-text" />
+
+              {this.props.status ?
+              <div>
+              <div className="section-ticket-validate text-center success">
+                <span>validated</span>
+              </div>
+              <div className="mt-2"><span>{this.props.ticket.validated}</span></div>
+              </div>
+              :
               <div className="section-ticket-validate text-center">
                 <span>validate</span>
               </div>
+              } 
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
