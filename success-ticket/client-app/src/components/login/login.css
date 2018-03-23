@@ -31,7 +31,8 @@
       padding-left: 20px;
       color: #fff;
       border-bottom: 1px solid #fff;
-      outline: none !important; }
+      outline: none !important;
+      border-radius: 0px !important; }
     .log-in-section-form ::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #b98cc5; }
