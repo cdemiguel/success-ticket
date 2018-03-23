@@ -1,4 +1,6 @@
 /* create user */
+.create-user-section{
+  padding-bottom: 25px; }
 .create-user-section input[type="text"],
 .create-user-section input[type="password"] {
   border: 1px solid #DCDCDC;
@@ -16,4 +18,4 @@
     .create-user-section input[type="radio"] {
         margin-bottom: 25px;
         margin-left: 10px;
-        margin-right: 5px; }
+        margin-right: 15px; }

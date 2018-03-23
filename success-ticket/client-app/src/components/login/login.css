@@ -17,9 +17,12 @@
     padding: 0 20px; }
     .log-in-section-form input {
       padding: 15px 0; }
-    .log-in-section-form input[type="button"] {
-      background: #fff;
-      border: 0; }
+    .log-in-section-form input[type="submit"] {
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.1); 
+      color: #fff;
+      font-size: 1rem; 
+      margin-top: 20px;}
     .log-in-section-form input[type="text"],
     .log-in-section-form input[type="password"] {
       padding: 10px 0;

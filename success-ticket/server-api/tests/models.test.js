@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const assert = require('assert')
-const { User, Event, Session, Ticket } = require('../src/models')
+const { User, Event, Session, Ticket, Company } = require('../src/models')
 
 
 describe('models', () => {
@@ -8,10 +8,22 @@ describe('models', () => {
         return mongoose.connect('mongodb://localhost/success-ticket-models-test')
     })
 
+    beforeEach(() => {
+        return Promise.all([
+            User.remove(),
+            Event.remove(),
+            Company.remove()
+        ])
+    })
+
     describe('validate ticket', () => {
-        let event, session, ticket
+        let company, event, session, ticket
 
         before(() => {
+            company = new Company({
+                name: 'name'
+            })
+            
             ticket = new Ticket({
                 code: '123'
             })
@@ -24,7 +36,7 @@ describe('models', () => {
 
             event = new Event({
                 title: 'title',
-                company: 'company',
+                company: company._id,
                 image: 'image',
                 sessions: [session]
             })

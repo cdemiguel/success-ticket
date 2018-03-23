@@ -66,7 +66,7 @@ class Tickets extends Component {
           effect: 'scale',
           beep: true,
           timeout: 3000
-        });
+        })
       }
     })
 
@@ -75,7 +75,6 @@ class Tickets extends Component {
 
   setStatus = (status) => {
 
-    console.log(status.status)
     if (status.status == 'OK') {
       Alert.success('Your ticket has been succesfully validated', {
         position: 'bottom',
@@ -99,33 +98,33 @@ class Tickets extends Component {
     this.setState({ selectedTicket });
   }
 
-  render(props) {
+  render() {
     const { tickets } = this.state
+    const { sessions } = this.state.tickets
 
-    const ticketsList = tickets ? tickets.tickets : null
-
-    const ticketsLocation = tickets.location
-    const ticketsDate = tickets.date
 
     const isToggleOn = this.state.isToggleOn
 
     const { selectedTicket } = this.state
 
     return (
+      
       <div className="section-validate-tickets">
         <div className="section-validate-tickets">
           <div className="col-12 section-title">
             <h3>Validation process</h3>
           </div>
           <hr />
+          {sessions && sessions.length ? (
           <div className="col-12 section-tickets-title">
-            <h3>{this.props.eventTitle}</h3>
+            <h3>{tickets.title}</h3>
             <span>
-              <strong>{ticketsDate}</strong>
+              <strong>{sessions[0].date}</strong>
             </span>
             <span> | </span>
-            <span>{ticketsLocation}</span>
+            <span>{sessions[0].location}</span>
           </div>
+          ): null }
           <hr />
           <div className="container">
             <div className="row section-ticket-searcher">

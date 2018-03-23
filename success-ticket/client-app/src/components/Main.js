@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import api_client from "./api-client";
 import "./main.css";
 
 // import react-router
@@ -19,16 +20,36 @@ class Main extends Component {
     super();
     this.state = {
       companyName: "",
-      eventTitle:""
+      companyId:"",
+      eventTitle:"",
+      user:"",
+
     };
   }
 
-  setCompanyName = (companyName) => {
+  sendCompanyName = (companyName) => {
     this.setState({ companyName });
   }
 
   seteventTitle = (eventTitle) => {
     this.setState({ eventTitle });
+  }
+
+  setUser = (user) => {
+    this.setState({ user });
+  }
+
+  componentDidMount() {
+    const userId = sessionStorage.getItem('userID')
+    api_client.getCompanyIdByUser(userId).then(_companyId => {
+      if(_companyId) {
+        const companyId = _companyId
+        this.setState({ companyId })
+      }
+    })
+
+
+
   }
   
   render() {
@@ -36,11 +57,11 @@ class Main extends Component {
       <div>
         <HashRouter>
           <div>
-            <Route exact path="/log-in" render={() => <Login />} />
+            <Route exact path="/log-in" render={() => <Login setUser={this.setUser} />} />
 
             <Route path="/r" render={() => <Menu companyName={this.state.companyName} />} />
 
-            <Route path="/r/events" render={() => <Events sendCompanyName={this.setCompanyName} />} />
+            <Route path="/r/events" render={() => <Events userInfo={this.state.user} sendCompanyName={this.sendCompanyName} sendRole={this.sendRole} />} />
 
             <Route
               path="/r/sessions/:title/:idEvent"
@@ -54,14 +75,19 @@ class Main extends Component {
 
             <Route
               path="/r/user-configuration"
-              render={() => <UserConfiguration />}
+              render={() => <UserConfiguration companyName={this.state.companyName} userInfo={this.state.user} />}
             />
 
-            <Route path="/r/create-user" render={() => <CreateUser />} />
+            <Route path="/r/create-user" render={() => <CreateUser 
+            companyName={this.state.companyName}
+            userInfo={this.state.user} 
+            companyId={this.state.companyId}
+            role={this.state.role}
+             />} />
 
-            <Route path="/r/delete-user" render={() => <DeleteUser />} />
+            <Route path="/r/update-user" render={() => <DeleteUser userInfo={this.state.user} />} />
 
-            <Route path="/r/update-user" render={() => <UpdateUser />} />
+            <Route path="/r/delete-user" render={() => <UpdateUser userInfo={this.state.user} />} />
           </div>
         </HashRouter>
       </div>

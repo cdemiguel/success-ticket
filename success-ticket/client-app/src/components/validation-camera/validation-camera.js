@@ -2,12 +2,16 @@ import React, { Component } from "react"
 import api_client from "./../api-client"
 import QrReader from 'react-qr-reader'
 
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
+
 class ValidationCamera extends Component {
     constructor(props){
         super(props)
         this.state = {
           delay: 3000,
-          result: 'focus your ticket on the camera',
+          result: 'Focus your ticket on the camera',
         }
         this.handleScan = this.handleScan.bind(this)
       }
@@ -20,13 +24,20 @@ class ValidationCamera extends Component {
           const idTicket = data
 
           api_client.validateTicket(idEvent, idSession, idTicket).then(status=>{
-
-            this.props.setStatus(status)
-            
-            if(status.data){
-              this.props.setSelectedTicket(status.data)
+          
+            if (status.status === 'OK') {
+              this.props.setStatus(status)
+              if(status.data){
+                this.props.setSelectedTicket(status.data)
+              }
+            } else {
+              Alert.error('The ticket was not found', {
+                position: 'bottom',
+                effect: 'scale',
+                beep: true,
+                timeout: 3000
+              });
             }
-
             })
 
           this.setState({

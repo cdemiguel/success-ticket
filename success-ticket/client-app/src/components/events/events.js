@@ -8,21 +8,31 @@ class Events extends Component {
     super();
     this.state = {
       events: [],
-      companyName:""
+      companyName:"",
+      role:""
     };
   }
 
   componentDidMount() {
-    api_client.getEventList().then(events => {
+
+    const userId = sessionStorage.getItem('userID')
+
+    api_client.getEventList(userId).then(events => {
       this.setState({ events });
+    })
 
-      const companyName = events[0].company
-      this.setState({ companyName });
-      
-      this.props.sendCompanyName(companyName)
-    });
+    api_client.getCompanyName(userId).then(companyNameSelected => {
+      if(companyNameSelected) {
+        const companyName = companyNameSelected
+        this.setState({ companyName })
+        this.props.sendCompanyName(this.state.companyName)
+      }
+    })
+
+    const companyName = this.state.companyName
+
+
   }
-
 
   render() {
     const { events } = this.state;
@@ -60,7 +70,6 @@ class Events extends Component {
                   </div>
                 </div>
               </Link>
-              
               <hr />
             </div>
           ))}
