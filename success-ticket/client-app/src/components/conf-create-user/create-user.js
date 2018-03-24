@@ -31,7 +31,7 @@ class CreateUser extends Component {
         }
     }
 
-    componentDidMount(props) {
+    componentWillMount(props) {
         const userId = sessionStorage.getItem('userID')
         api_client.getCompanyIdByUser(userId).then(_companyId => {
             if (_companyId) {
@@ -39,9 +39,16 @@ class CreateUser extends Component {
                 this.setState({ companyId })
                 return api_client.getEventListByCompanyId(companyId).then(events => {
                     this.setState({ events });
+                    if(this.state.role == "ADMIN" || this.state.role == "admin") {
+                        const { events } = this.state
+                        this.setState({eventsToPass: events})
+                    }
                 })
             }
         })
+
+
+
     }
 
     logOut = () => {
@@ -59,7 +66,14 @@ class CreateUser extends Component {
         this.setState({
             rol: changeEvent.target.value
         })
+        if(changeEvent.target.value == "admin" || changeEvent.target.value == "ADMIN"){
+            const { events } = this.state
+            this.setState({eventsToPass: events})
+        }else {
+            this.setState({eventsToPass: []})
+        }
     }
+
 
     handleOptionChangeCheckbox = (event) => {
         let eventsId = [...this.state.eventsToPass];
@@ -79,7 +93,7 @@ class CreateUser extends Component {
 
     createUser = (e) => {
         const { name, username, email, password, rol } = this.state
-        const companyId = this.props.companyId
+        const companyId = this.state.companyId
         const eventsId = this.state.eventsToPass
         api_client.createUser(name, username, email, password, rol, companyId, eventsId).then(user => {
             if (user.status == "OK") {
@@ -89,6 +103,7 @@ class CreateUser extends Component {
                     beep: true,
                     timeout: 3000
                 })
+
             } else {
                 Alert.error(user.message, {
                     position: 'bottom',
@@ -99,6 +114,8 @@ class CreateUser extends Component {
             }
         })
     }
+
+
 
     render() {
 
@@ -160,7 +177,7 @@ class CreateUser extends Component {
                                         </div>
                                     </div>
 
-                                    {/* {(rol && rol.toLowerCase() === "validator") ? */}
+                                    {(rol && rol.toLowerCase() === "validator") ?
                                         <div>
                                             <p>Select the events that wants to new user could validate:</p>
                                             <div className="row mb-2">
@@ -177,7 +194,7 @@ class CreateUser extends Component {
                                                 ) : undefined}
                                             </div>
                                         </div>
-                                        {/* : null} */}
+                                        : null}
                                     <button>Create</button>
                                 </form>
                             </div>

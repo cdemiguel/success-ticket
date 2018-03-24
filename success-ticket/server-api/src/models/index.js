@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-const { Schema, Schema: { ObjectId } } = mongoose
+// const { Schema, Schema: { ObjectId } } = mongoose
+
+const Schema = mongoose.Schema;
 
 const Company = new Schema({
     name: {
@@ -19,7 +21,7 @@ const User = new Schema({
         type: String,
     },
     companies: [{
-        type: ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Company'
     }],
     email: {
@@ -40,7 +42,7 @@ const User = new Schema({
         required: true
     },
     events:[{
-        type: ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Event'
     }]
 })
@@ -74,7 +76,7 @@ const Event = new Schema({
     },
     subtitle: String,
     company: {
-        type: ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Company',
         required: true
     },

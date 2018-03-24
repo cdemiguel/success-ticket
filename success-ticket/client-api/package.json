@@ -2,7 +2,7 @@
   "name": "client-api",
   "version": "1.0.2",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx babel index.js --out-file dist/index.js --presets=es2015",
     "test": "echo \"Error: no test specified\" && exit 1"

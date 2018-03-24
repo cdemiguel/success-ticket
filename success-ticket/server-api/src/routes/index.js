@@ -230,6 +230,27 @@ eventRoute.route('/usercreate')
             })
     })
 
+/* get all users by company id */
+eventRoute.route('/user/company/:companyId')
+    .get((req, res) => {
+        const { params: { companyId } } = req
+        logic.getCompanyByUser(companyId)
+            .then(users => {
+                res.json({
+                    status: "OK",
+                    message: "users from this company retrieved OK",
+                    data: users
+                })
+            })
+            .catch(err => {
+                res.json({
+                    status: "KO",
+                    message: err.message
+                })
+            })
+    })
+
+
 
 
 module.exports = eventRoute

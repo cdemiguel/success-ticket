@@ -57,14 +57,14 @@ class UserConfiguration extends Component {
                     <button>Create user</button>
                     </Link>
                     
-                    <p className="text-center">Upgrade or modify user information</p>
+                    <p className="text-center">Eliminates an user by id</p>
                     <Link  to={`/r/delete-user`}>
-                    <button>Modify user</button>
+                    <button>Delete user</button>
                     </Link>
                     
-                    <p className="text-center">Eliminates an user by id</p>
+                    <p className="text-center">Upgrade or modify user information</p>
                     <Link  to={`/r/update-user`}>
-                    <button>Delete user</button>
+                    <button>Modify user</button>
                     </Link>
                 </div>
                 </div>

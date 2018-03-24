@@ -85,9 +85,9 @@ class Main extends Component {
             role={this.state.role}
              />} />
 
-            <Route path="/r/update-user" render={() => <DeleteUser userInfo={this.state.user} />} />
+            <Route path="/r/delete-user" render={() => <DeleteUser userInfo={this.state.user}  companyId={this.state.companyId}/>} />
 
-            <Route path="/r/delete-user" render={() => <UpdateUser userInfo={this.state.user} />} />
+            <Route path="/r/update-user" render={() => <UpdateUser userInfo={this.state.user} />} />
           </div>
         </HashRouter>
       </div>

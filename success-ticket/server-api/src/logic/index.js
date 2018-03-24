@@ -1,5 +1,6 @@
 const { User, Event, Session, Ticket, Company } = require('../models')
 var { ObjectId } = require('mongodb');
+
 const logic = {
 
     checkLogin(email, password) {
@@ -115,7 +116,7 @@ const logic = {
                     return User.findOneAndUpdate({ username },
                         {
                             "$push": {
-                                companies: { _id: companyId },
+                                companies: { _id:companyId },
                                 events: { "$each": eventsId}
                             }
                         }, 
@@ -128,8 +129,18 @@ const logic = {
                 .then(resolve)
                 .catch(reject)
         })
+    },
 
+    getCompanyByUser(companyId) {
+        return new Promise((resolve, reject) => {
+            return User.find({ companies: companyId, role:"validator" }).select({ "_id": 1, "name":1, "email":1})
+                .then(resolve)
+                .catch(reject)
+        })
     }
+
+
+
 }
 
 
