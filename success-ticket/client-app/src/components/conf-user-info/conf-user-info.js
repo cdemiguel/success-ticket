@@ -15,9 +15,13 @@ class UserInfo extends Component {
         api_client.getUserById(userId).then(user => {
             this.setState({user})
 
+            console.log(user)
+
             const userName = this.state.user.name
             const role = this.state.user.role
-            this.props.sendUserInfo(userName, role)
+            const emailUser = this.state.user.email
+
+            this.props.sendUserInfo(userName, role, emailUser)
         })
 
       }

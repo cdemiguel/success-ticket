@@ -131,11 +131,26 @@ const logic = {
         })
     },
 
-    getCompanyByUser(companyId) {
+    getCompanyByUsers(companyId) {
         return new Promise((resolve, reject) => {
             return User.find({ companies: companyId, role:"validator" }).select({ "_id": 1, "name":1, "email":1})
                 .then(resolve)
                 .catch(reject)
+        })
+    },
+
+    deleteUser(email, role, emailUser){
+        return new Promise((resolve, reject) => {
+            return User.findOne({ email: email })
+            .then(user=>{
+                if (!user) throw Error('No lo se Rick, parece falso')
+                if (user.email == emailUser) throw Error('You cannot delete your admin user')
+                if (role.toLowerCase() == 'admin') throw Error('You cannot delete an admin user')
+                if (user.email !== email) throw Error('User email does not match the one provided')
+                return User.deleteOne({ email })
+            })
+            .then(resolve)
+            .catch(reject)
         })
     }
 

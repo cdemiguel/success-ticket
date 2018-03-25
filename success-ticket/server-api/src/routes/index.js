@@ -3,8 +3,6 @@ const express = require('express')
 const eventRoute = express.Router()
 const bodyParser = require('body-parser')
 
-
-
 const jsonBodyParser = bodyParser.json()
 
 /* check login  */
@@ -234,7 +232,7 @@ eventRoute.route('/usercreate')
 eventRoute.route('/user/company/:companyId')
     .get((req, res) => {
         const { params: { companyId } } = req
-        logic.getCompanyByUser(companyId)
+        logic.getCompanyByUsers(companyId)
             .then(users => {
                 res.json({
                     status: "OK",
@@ -250,7 +248,25 @@ eventRoute.route('/user/company/:companyId')
             })
     })
 
-
+eventRoute.route('/user/delete/:userEmail')
+    .delete(jsonBodyParser, (req, res) => {
+        const { params: { userEmail } } = req
+        const { body: { role, emailUser } } = req
+        logic.deleteUser(userEmail, role, emailUser)
+        .then(data => {
+            res.json({
+                status: "OK",
+                message: "user deleted successfully",
+                data: data
+            })
+        })
+        .catch(err => {
+            res.json({
+                status: "KO",
+                message: err.message
+            })
+        })
+    })
 
 
 module.exports = eventRoute

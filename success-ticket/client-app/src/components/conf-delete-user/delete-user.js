@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Redirect } from "react-router";
 import './delete-user.css';
 import api_client from "./../api-client";
+
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
+
 import UserInfo from '../conf-user-info/conf-user-info'
 
 class DeleteUser extends Component {
@@ -29,8 +34,8 @@ class DeleteUser extends Component {
             redirect: true
         })
     }
-    setUserInfo = (userInformation) => {
-        this.setState({userInformation});
+    setUserInfo = (userInformation, role, emailUser) => {
+        this.setState({userInformation, role, emailUser});
       }
 
     handleChange = (e) => {
@@ -38,14 +43,31 @@ class DeleteUser extends Component {
     }
     
     deleteUser = () => {
-        const { email } = this.state
-        api_client.deleteUser(email)
-        .then(pedito =>  console.log(pedito))
+        const { email, role, emailUser } = this.state
+        
+        api_client.deleteUser(email, role, emailUser)
+        .then(user =>{
+            if (user.status == "OK") {
+                Alert.success(`User deleted succesfully`, {
+                    position: 'bottom',
+                    effect: 'scale',
+                    beep: true,
+                    timeout: 3000
+                })
+
+            } else {
+                Alert.error(user.message, {
+                    position: 'bottom',
+                    effect: 'scale',
+                    beep: true,
+                    timeout: 3000
+                });
+            }
+        })
     }
 
     render() {
 
-        const { userInfo } = this.props
         const { usersTodelete } = this.state
         
         return (
@@ -85,6 +107,7 @@ class DeleteUser extends Component {
                         </form>
                     </div>
                 </div>
+                <Alert stack={{ limit: 3 }} />
             </div>
 
         )

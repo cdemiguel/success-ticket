@@ -55,6 +55,10 @@ const axios = require('axios')
             return axios.get(`${this.baseUrl()}/events/user/company/${companyId}`).then(res => res.data.data)
         },
 
+        deleteUser(email, role, emailUser){
+            return axios.delete(`${this.baseUrl()}/events/user/delete/${email}`, { data: { role, emailUser}}  ).then(res => res.data)
+        }
+
     }
 
 
