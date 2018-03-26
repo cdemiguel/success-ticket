@@ -60,7 +60,6 @@ class DeleteUser extends Component {
         b.forEach(f => a.splice(a.findIndex(e => e.email === f.email), 1))
         let usersTodelete = a
         this.setState({ usersTodelete })
-        
       } else {
         Alert.error(user.message, {
           position: "bottom",

@@ -3,7 +3,7 @@ import api_client from "./../api-client"
 import "./sessions.css"
 import { withRouter, Link } from "react-router-dom"
 
-const moment = require('moment')
+const moment = require("moment")
 
 class Sessions extends Component {
   constructor() {
@@ -72,7 +72,9 @@ class Sessions extends Component {
               <div className="row">
                 <div className="col-12 text-center session-subsection">
                   <div className="session-subsection-info">
-                    <h3>{moment(session.date).format('MMMM Do YYYY, h:mm:ss a')}</h3>
+                    <h3>
+                      {moment(session.date).format("MMMM Do YYYY, h:mm:ss a")}
+                    </h3>
                     <h3 className="mt-2">{session.location}</h3>
                   </div>
                   <Link to={`/r/tickets/${idEvent}/${session._id}`}>
