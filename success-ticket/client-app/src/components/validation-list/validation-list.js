@@ -11,6 +11,8 @@ import TicketModule from "../ticket-module/ticket-module"
 import NotificationMsg from "../notification-msg/notification-msg"
 import ValidationCamera from "../validation-camera/validation-camera"
 
+const moment = require('moment')
+
 class Tickets extends Component {
   constructor() {
     super()
@@ -119,7 +121,7 @@ class Tickets extends Component {
           <div className="col-12 section-tickets-title">
             <h3>{tickets.title}</h3>
             <span>
-              <strong>{sessions[0].date}</strong>
+              <strong>{moment(sessions[0].date).format('MMMM Do YYYY, h:mm:ss a')}</strong>
             </span>
             <span> | </span>
             <span>{sessions[0].location}</span>

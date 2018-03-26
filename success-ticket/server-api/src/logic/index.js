@@ -145,7 +145,7 @@ const logic = {
             .then(user=>{
                 if (!user) throw Error('No lo se Rick, parece falso')
                 if (user.email == emailUser) throw Error('You cannot delete your admin user')
-                if (role.toLowerCase() == 'admin') throw Error('You cannot delete an admin user')
+                if (role.toLowerCase() != 'admin') throw Error('You cannot delete an admin user')
                 if (user.email !== email) throw Error('User email does not match the one provided')
                 return User.deleteOne({ email })
             })

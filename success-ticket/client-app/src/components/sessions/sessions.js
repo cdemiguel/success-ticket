@@ -3,9 +3,11 @@ import api_client from "./../api-client"
 import "./sessions.css"
 import { withRouter, Link } from "react-router-dom"
 
+const moment = require('moment')
+
 class Sessions extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       sessions: [],
       idSessions: "",
@@ -16,7 +18,7 @@ class Sessions extends Component {
   componentDidMount() {
     this.showSessions(
       this.props.match.params.idEvent,
-      this.props.match.params.title,
+      this.props.match.params.title
     )
   }
 
@@ -27,10 +29,8 @@ class Sessions extends Component {
       this.setState({ title })
 
       this.props.sendeventTitle(this.state.title)
-
-      
-    });
-  };
+    })
+  }
 
   render() {
     const { sessions } = this.state
@@ -39,17 +39,18 @@ class Sessions extends Component {
       : null
 
     let sessionsNumber = this.state.sessions
-    sessionsNumber = sessionsNumber.map(sessionsNumber=>sessionsNumber.sessions)
+    sessionsNumber = sessionsNumber.map(
+      sessionsNumber => sessionsNumber.sessions
+    )
     let counter = 0
     let number = []
     sessionsNumber.forEach(function(element) {
       number.push(element.length)
-    });
-    number =number.toString() 
+    })
+    number = number.toString()
 
     let idEvent = this.state.sessions
     idEvent = idEvent.map(eventNumber => eventNumber._id).join("")
-
 
     return (
       <div>
@@ -64,7 +65,6 @@ class Sessions extends Component {
           </h3>
         </div>
         <hr />
-
         {sessions &&
           sessionsList &&
           sessionsList.map((session, index) => (
@@ -72,10 +72,9 @@ class Sessions extends Component {
               <div className="row">
                 <div className="col-12 text-center session-subsection">
                   <div className="session-subsection-info">
-                    <h3>{session.date}</h3>
+                    <h3>{moment(session.date).format('MMMM Do YYYY, h:mm:ss a')}</h3>
                     <h3 className="mt-2">{session.location}</h3>
                   </div>
-
                   <Link to={`/r/tickets/${idEvent}/${session._id}`}>
                     <button>Validate tickets in this section</button>
                   </Link>
@@ -84,8 +83,8 @@ class Sessions extends Component {
             </div>
           ))}
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(Sessions);
+export default withRouter(Sessions)
