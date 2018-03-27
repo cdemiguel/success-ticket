@@ -11,9 +11,9 @@ const api_client = {
       .then(res => res.data)
   },
 
-  getCompanyName(userId) {
+  getCompanyName(token) {
     return axios
-      .get(`${this.baseUrl()}/events/company/${userId}`)
+      .get(`${this.baseUrl()}/events/company`, {headers: { Authorization: `Bearer ${token}` }})
       .then(res => res.data.data)
   },
 
@@ -35,9 +35,9 @@ const api_client = {
       .then(res => res.data.data)
   },
 
-  getEventList(userId) {
+  getEventList(token) {
     return axios
-      .get(`${this.baseUrl()}/events/${userId}`)
+      .get(`${this.baseUrl()}/events`, {headers: { Authorization: `Bearer ${token}` }})
       .then(res => res.data.data)
   },
 

@@ -11,8 +11,8 @@ var api_client = {
       return res.data;
     });
   },
-  getCompanyName: function getCompanyName(userId) {
-    return axios.get(this.baseUrl() + "/events/company/" + userId).then(function (res) {
+  getCompanyName: function getCompanyName(token) {
+    return axios.get(this.baseUrl() + "/events/company", { headers: { Authorization: "Bearer " + token } }).then(function (res) {
       return res.data.data;
     });
   },
@@ -31,8 +31,8 @@ var api_client = {
       return res.data.data;
     });
   },
-  getEventList: function getEventList(userId) {
-    return axios.get(this.baseUrl() + "/events/" + userId).then(function (res) {
+  getEventList: function getEventList(token) {
+    return axios.get(this.baseUrl() + "/events", { headers: { Authorization: "Bearer " + token } }).then(function (res) {
       return res.data.data;
     });
   },

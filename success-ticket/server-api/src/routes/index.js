@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken")
 const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt")
 
 const jsonBodyParser = bodyParser.json()
+const secret = process.env.JWT_SECRET
 
 passport.use(
   new LocalStrategy((username, password, done) => {
@@ -23,7 +24,18 @@ passport.use(
   })
 )
 
-const secret = process.env.JWT_SECRET
+passport.use(new JwtStrategy({
+  secretOrKey: secret,
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+}, (payload, done) => {
+  const { id, email } = payload
+
+  logic.getUserByUserId(id)
+      .then(user => done(undefined, user ? user : false))
+      .catch(done)
+}))
+
+
 
 /* check login  */
 eventRoute.post("/login",
@@ -52,10 +64,11 @@ eventRoute.post("/login",
   })
 
 /* get company name */
-eventRoute.route("/company/:userId").get((req, res) => {
-  const { params: { userId } } = req
+eventRoute.route("/company").get(passport.authenticate('jwt', { session: false }), (req, res) => {
+  const { user } = req
+
   logic
-    .getCompanyByUser(userId)
+    .getCompanyByUser(user._id)
     .then(company => {
       res.json({
         status: "OK",
@@ -112,10 +125,10 @@ eventRoute.route("/user/:userId").get((req, res) => {
 })
 
 /* get events */
-eventRoute.route("/:userId").get((req, res) => {
-  const { params: { userId } } = req
+eventRoute.route("/").get(passport.authenticate('jwt', { session: false }), (req, res) => {
+  const { user } = req
   logic
-    .getEventsByUserId(userId)
+    .getEventsByUserId(user._id)
     .then(events => {
       res.json({
         status: "OK",

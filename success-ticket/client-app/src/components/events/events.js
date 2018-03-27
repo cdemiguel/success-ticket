@@ -14,13 +14,14 @@ class Events extends Component {
   }
 
   componentDidMount() {
-    const userId = sessionStorage.getItem("userID")
+    const token = sessionStorage.getItem("token")
 
-    api_client.getEventList(userId).then(events => {
+    api_client.getEventList(token).then(events => {
+      console.log(events)
       this.setState({ events })
     })
 
-    api_client.getCompanyName(userId).then(companyNameSelected => {
+    api_client.getCompanyName(token).then(companyNameSelected => {
       if (companyNameSelected) {
         const companyName = companyNameSelected
         this.setState({ companyName })

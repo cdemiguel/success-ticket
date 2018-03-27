@@ -27,7 +27,7 @@ class Login extends Component {
 
     api_client.loginUser(this.state.email, this.state.password).then(data => {
       if (data.status == "KO") {
-        Alert.error(data.message, {
+        Alert.error(data.error, {
           position: "bottom",
           effect: "scale",
           beep: true,
@@ -35,9 +35,9 @@ class Login extends Component {
         })
       } else {
         if (data) {
-          this.props.setUser(data.data)
+          this.props.setUser(data.data.token)
 
-          sessionStorage.setItem("userID", data.data._id)
+          sessionStorage.setItem("token", data.data.token)
         }
         this.setState({
           redirect: true
