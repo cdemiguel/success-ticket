@@ -42,6 +42,7 @@ describe('models', () => {
             })
 
             return Promise.all([
+                company.save().then(_company => company = _company),
                 event.save().then(_event => event = _event),
             ])
                 .then(() => {
@@ -53,6 +54,8 @@ describe('models', () => {
                     const sessionId = session._id.toString()
                     const ticketId = ticket._id.toString()
 
+                    debugger
+
                     event.sessions.id(sessionId).tickets.id(ticketId).set({ status: true })
 
                     return event.save()
@@ -61,6 +64,8 @@ describe('models', () => {
         })
 
         it('should validate ticket', () => {
+            assert(company, 'should company been created')
+
             assert(ticket, 'should ticket been created')
 
             assert(session, 'should session been created')

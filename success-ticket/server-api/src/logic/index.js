@@ -4,6 +4,8 @@ var { ObjectId } = require("mongodb")
 const logic = {
   checkLogin(email, password) {
     return new Promise((resolve, reject) => {
+      // TODO add email and password -> validate({ email, password }) // throw Error if invalid
+
       User.findOne({ email })
         .then(user => {
           if (!user) {

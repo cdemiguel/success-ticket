@@ -11,15 +11,15 @@ const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt")
 const jsonBodyParser = bodyParser.json()
 
 passport.use(
-  new LocalStrategy((email, password, done) => {
-    console.log("holaa")
+  new LocalStrategy((username, password, done) => {
     logic
-      .checkLogin(email, password)
+      .checkLogin(username, password)
       .then(user => {
-        if (!user) return done(undefined, false)
+        if (!user) return done(undefined, Error('username and/or password wrong'))
+
         done(undefined, user)
       })
-      .catch(done)
+      .catch(err => done(undefined, err))
   })
 )
 
@@ -29,11 +29,16 @@ const secret = process.env.JWT_SECRET
 eventRoute.post("/login",
   [jsonBodyParser, passport.authenticate("local", { session: false })],
   (req, res) => {
-    console.log("jjojo")
-    const { user: { id, email } } = req
+    if (req.user instanceof Error)
+      return res.json({
+        status: 'KO',
+        error: req.user.message
+      })
+
+    const { user: { _id, email } } = req
     const token = jwt.sign(
       {
-        id,
+        id: _id.toString(),
         email
       },
       secret
