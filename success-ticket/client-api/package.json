@@ -2,10 +2,10 @@
   "name": "client-api",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "npx babel index.js --out-file dist/index.js --presets=es2015",
-    "test": "mocha"
+    "build": "npx babel src/index.js --out-file dist/index.js --presets=es2015",
+    "test": "mocha tests"
   },
   "keywords": [],
   "author": "",
