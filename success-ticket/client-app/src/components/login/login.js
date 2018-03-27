@@ -22,9 +22,10 @@ class Login extends Component {
   keepInputPassword = password => this.setState({ password })
 
   submitUser = () => {
-    const { email, password } = this.state
+    // const { email, password } = this.state
+    // const email = this.state.email
 
-    api_client.loginUser(email, password).then(data => {
+    api_client.loginUser(this.state.email, this.state.password).then(data => {
       if (data.status == "KO") {
         Alert.error(data.message, {
           position: "bottom",

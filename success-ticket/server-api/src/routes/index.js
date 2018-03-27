@@ -12,41 +12,39 @@ const jsonBodyParser = bodyParser.json()
 
 passport.use(
   new LocalStrategy((email, password, done) => {
+    console.log("holaa")
     logic
       .checkLogin(email, password)
       .then(user => {
         if (!user) return done(undefined, false)
-        console.log(user)
         done(undefined, user)
       })
       .catch(done)
   })
 )
 
+const secret = process.env.JWT_SECRET
+
 /* check login  */
-eventRoute
-  .route("/login")
-  .post(
-    [jsonBodyParser, passport.authenticate("local", { session: false })],
-    (req, res) => {
-      const { body: { email, password } } = req
-      logic
-        .checkLogin(email, password)
-        .then(user => {
-          res.json({
-            status: "OK",
-            message: "email recieved",
-            data: user
-          })
-        })
-        .catch(err => {
-          res.json({
-            status: "KO",
-            message: err.message
-          })
-        })
-    }
-  )
+eventRoute.post("/login",
+  [jsonBodyParser, passport.authenticate("local", { session: false })],
+  (req, res) => {
+    console.log("jjojo")
+    const { user: { id, email } } = req
+    const token = jwt.sign(
+      {
+        id,
+        email
+      },
+      secret
+    )
+    res.json({
+      status: "OK",
+      data: {
+        token
+      }
+    })
+  })
 
 /* get company name */
 eventRoute.route("/company/:userId").get((req, res) => {
