@@ -78,15 +78,4 @@ Process diagram:
 | 28/03/2018 | Upload and functional tests, fix |    
 | 30/03/2018 | Newspaper time |    
 
-**React Project routes**
 
-    Local routes (React)
-
-http://localhost:3000/#/log-in
-http://localhost:3000/#/r/events
-http://localhost:3000/#/r/sessions
-http://localhost:3000/#/r/tickets
-http://localhost:3000/#/r/user-configuration
-http://localhost:3000/#/r/create-user
-http://localhost:3000/#/r/delete-user
-http://localhost:3000/#/r/update-user
