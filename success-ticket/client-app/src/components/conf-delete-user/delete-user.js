@@ -96,7 +96,6 @@ class DeleteUser extends Component {
           <hr />
           <div className="container pt-4">
             <p>You can only delete VALIDATOR users in your company:</p>
-
             {usersTodelete
               ? usersTodelete.map((user, index) => (
                   <div className="mb-2">

@@ -17,7 +17,6 @@ class Events extends Component {
     const token = sessionStorage.getItem("token")
 
     api_client.getEventList(token).then(events => {
-      console.log(events)
       this.setState({ events })
     })
 

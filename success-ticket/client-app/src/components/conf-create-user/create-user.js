@@ -180,7 +180,7 @@ class CreateUser extends Component {
                     required
                   />
 
-                  <div class="row">
+                  <div className="row">
                     <div className="radio col-6">
                       <label>
                         <input

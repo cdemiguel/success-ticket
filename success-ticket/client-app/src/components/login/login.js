@@ -74,7 +74,7 @@ class Login extends Component {
                 value={this.state.email}
                 className="col-12 mb-4"
                 type="text"
-                placeholder="e.g:email@email.com"
+                placeholder="e.g: email@email.com"
                 required
               />
               <input
@@ -82,7 +82,7 @@ class Login extends Component {
                 value={this.state.password}
                 className="col-12 mb-4"
                 type="password"
-                placeholder="e.g:********"
+                placeholder="e.g: ********"
                 required
               />
               <input

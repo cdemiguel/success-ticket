@@ -17,39 +17,36 @@ mongoose
 
 function main() {
   const company = Company({
-    name: "DemoCompany02"
+    name: "FCB"
   })
 
   company.save()
 
   const user = User({
-    name: "Isabelda02",
-    surname: "Fernandez02",
-    email: "mail02@mail.com",
+    name: "AdminFCB",
+    surname: "Barça",
+    email: "fcb@fcb.com",
     role: "ADMIN",
-    username: "isa21",
+    username: "fcb",
     password: "123"
   })
 
   user.save()
 
   const event = new Event({
-    title: "Concierto Daft Punk02",
-    subtitle: "Gira Mundial02",
-    image:
-      "https://rtvc-assets-radionica3.s3.amazonaws.com/s3fs-public/styles/image_750x422/public/senalradionica/articulo-noticia/galeriaimagen/front_dp.jpg?itok=4jq3x0B9"
+    title: "FCB vs Real Madrid",
+    subtitle: "Liga BBVA",
+    image:"http://www.mundodeportivo.com/r/GODO/MD/p3/Barca/Imagenes/2016/12/03/Recortada/img_pmorata_20160405-125540_imagenes_md_propias_pmorata_pepm7193-kN7H-U412372788189ym-980x554@MundoDeportivo-Web.jpg"
   })
 
   const session = new Session({
     date: new Date(),
-    location: "Stadium"
+    location: "Camp Nou L5"
   })
 
   function addTickets() {
-    for (let i = 40; i < 50; i++) {
-      const code = i + "QWERTYU"
+    for (let i = 0; i < 20; i++) {
       const ticket = new Ticket({
-        code,
         status: false,
         validated: undefined
       })
