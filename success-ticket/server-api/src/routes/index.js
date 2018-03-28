@@ -66,9 +66,8 @@ eventRoute.post("/login",
 /* get company name */
 eventRoute.route("/company").get(passport.authenticate('jwt', { session: false }), (req, res) => {
   const { user } = req
-
   logic
-    .getCompanyByUser(user._id)
+    .getCompanyByUser(user._id.toString())
     .then(company => {
       res.json({
         status: "OK",
@@ -85,10 +84,10 @@ eventRoute.route("/company").get(passport.authenticate('jwt', { session: false }
 })
 
 /* get companyid by userid  */
-eventRoute.route("/companyid/:userId").get((req, res) => {
-  const { params: { userId } } = req
+eventRoute.route("/companyid").get(passport.authenticate('jwt', { session: false }), (req, res) => {
+  const { user } = req
   logic
-    .getCompanyIdByUser(userId)
+    .getCompanyIdByUser(user._id.toString())
     .then(company => {
       res.json({
         status: "OK",
@@ -104,11 +103,11 @@ eventRoute.route("/companyid/:userId").get((req, res) => {
     })
 })
 
-/* get user info by id */
-eventRoute.route("/user/:userId").get((req, res) => {
-  const { params: { userId } } = req
+/* get user info by id ********************/
+eventRoute.route("/user").get(passport.authenticate('jwt', { session: false }), (req, res) => {
+  const { user } = req
   logic
-    .getUserByUserId(userId)
+    .getUserByUserId(user._id.toString())
     .then(user => {
       res.json({
         status: "OK",
@@ -128,7 +127,7 @@ eventRoute.route("/user/:userId").get((req, res) => {
 eventRoute.route("/").get(passport.authenticate('jwt', { session: false }), (req, res) => {
   const { user } = req
   logic
-    .getEventsByUserId(user._id)
+    .getEventsByUserId(user._id.toString())
     .then(events => {
       res.json({
         status: "OK",

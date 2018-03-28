@@ -16,8 +16,8 @@ var api_client = {
       return res.data.data;
     });
   },
-  getCompanyIdByUser: function getCompanyIdByUser(userId) {
-    return axios.get(this.baseUrl() + "/events/companyid/" + userId).then(function (res) {
+  getCompanyIdByUser: function getCompanyIdByUser(token) {
+    return axios.get(this.baseUrl() + "/events/companyid", { headers: { Authorization: "Bearer " + token } }).then(function (res) {
       return res.data.data;
     });
   },
@@ -26,8 +26,8 @@ var api_client = {
       return res.data.data;
     });
   },
-  getUserById: function getUserById(userId) {
-    return axios.get(this.baseUrl() + "/events/user/" + userId).then(function (res) {
+  getUserById: function getUserById(token) {
+    return axios.get(this.baseUrl() + "/events/user", { headers: { Authorization: "Bearer " + token } }).then(function (res) {
       return res.data.data;
     });
   },

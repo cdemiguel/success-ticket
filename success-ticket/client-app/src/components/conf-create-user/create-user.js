@@ -28,8 +28,10 @@ class CreateUser extends Component {
   }
 
   componentWillMount(props) {
-    const userId = sessionStorage.getItem("userID")
-    api_client.getCompanyIdByUser(userId).then(_companyId => {
+
+    const token = sessionStorage.getItem("token")
+
+    api_client.getCompanyIdByUser(token).then(_companyId => {
       if (_companyId) {
         const companyId = _companyId
         this.setState({ companyId })

@@ -10,11 +10,10 @@ class UserInfo extends Component {
   }
 
   componentDidMount() {
-    const userId = sessionStorage.getItem("userID")
-    api_client.getUserById(userId).then(user => {
-      this.setState({ user })
+    const token = sessionStorage.getItem("token")
 
-      console.log(user)
+    api_client.getUserById(token).then(user => {
+      this.setState({ user })
 
       const userName = this.state.user.name
       const role = this.state.user.role

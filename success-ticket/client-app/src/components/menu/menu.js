@@ -10,9 +10,9 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    const userId = sessionStorage.getItem("userID")
+    const token = sessionStorage.getItem("token")
 
-    api_client.getCompanyName(userId).then(companyNameSelected => {
+    api_client.getCompanyName(token).then(companyNameSelected => {
       if (companyNameSelected) {
         const companyName = companyNameSelected
         this.setState({ companyName })
