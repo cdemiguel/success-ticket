@@ -17,18 +17,40 @@ class DeleteUser extends Component {
       userInformation: "",
       usersSelectedCompany: ""
     }
-    this.componentWillReceiveProps(props)
+    // this.componentWillReceiveProps(props)
   }
 
-  componentWillReceiveProps(props) {
-    const companyId = props.companyId
-    api_client.getUsersByCompanyId(companyId).then(_usersTodelete => {
-      if (_usersTodelete) {
-        const usersTodelete = _usersTodelete
-        this.setState({ usersTodelete })
+  // componentWillReceiveProps(props) {
+  //   const companyId = props.companyId
+  //   api_client.getUsersByCompanyId(companyId).then(_usersTodelete => {
+  //     if (_usersTodelete) {
+  //       const usersTodelete = _usersTodelete
+  //       this.setState({ usersTodelete })
+  //     }
+  //   })
+  // }
+
+  componentDidMount() {
+
+    const token = sessionStorage.getItem("token")
+    api_client.getCompanyIdByUser(token).then(_companyId => {
+      if (_companyId) {
+        const companyId = _companyId
+        this.setState({ companyId })
       }
+    }).then(() => {
+      api_client.getUsersByCompanyId(this.state.companyId).then(_usersTodelete => {
+        if (_usersTodelete) {
+          const usersTodelete = _usersTodelete
+          this.setState({ usersTodelete })
+        }
+      })
     })
+
+
   }
+
+
 
   logOut = () => {
     this.setState({

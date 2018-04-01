@@ -39,9 +39,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-
     const token = sessionStorage.getItem("token")
-
     api_client.getCompanyIdByUser(token).then(_companyId => {
       if (_companyId) {
         const companyId = _companyId
