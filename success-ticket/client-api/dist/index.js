@@ -1,3 +1,6 @@
+"use strict";
+"use strict";
+
 var axios = require("axios");
 
 var api_client = {
