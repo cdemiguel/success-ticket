@@ -16,7 +16,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "mongoose": "^5.0.10",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
